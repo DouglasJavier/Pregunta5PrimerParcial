@@ -1,0 +1,15 @@
+--Primer parcial INF-324 DOUGLAS JAVIER COLQUE MULLISACA CI: 9991597
+SELECT n.sigla, 
+SUM(case WHEN p.depto='01' then n.notaF else 0 end)/SUM(case WHEN p.depto='01' then 1 else 0 end) CH,
+SUM(case WHEN p.depto='02' then n.notaF else 0 end)/SUM(case WHEN p.depto='02' then 1 else 0 end) LP,
+SUM(case WHEN p.depto='03' then n.notaF else 0 END)/SUM(case WHEN p.depto='03' then 1 else 0 end) CB,
+SUM(case WHEN p.depto='04' then n.notaF else 0 end)/SUM(case WHEN p.depto='04' then 1 else 0 end) ORU,
+SUM(case WHEN p.depto='05' then n.notaF else 0 end)/SUM(case WHEN p.depto='05' then 1 else 0 end) PT,
+SUM(case WHEN p.depto='06' then n.notaF else 0 end)/SUM(case WHEN p.depto='06' then 1 else 0 end) TJ,
+SUM(case WHEN p.depto='07' then n.notaF else 0 end)/SUM(case WHEN p.depto='07' then 1 else 0 end) SC,
+SUM(case WHEN p.depto='08' then n.notaF else 0 end)/SUM(case WHEN p.depto='08' then 1 else 0 end) BN,
+SUM(case WHEN p.depto='09' then n.notaF else 0 end)/SUM(case WHEN p.depto='09' then 1 else 0 end) PD
+FROM nota as n, persona as p
+WHERE n.ci=p.ci
+GROUP by n.sigla
+
